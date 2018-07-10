@@ -15,7 +15,7 @@ public class MyFirstJavaClass {
 		circ2.findArea(5.0);
 		
 		Circle circ3 = new Circle();
-		circ3.findArea(6.0);
+		circ3.findArea(6.0); 
 		
 		c=add2(2,3);
 		d=add2(2.3,3.2);
