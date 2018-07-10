@@ -5,7 +5,7 @@ public class MyFirstJavaClass {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int c;
+		int c; int d;
 		c=add2(2,3);
 		System.out.print(c);
 	}
