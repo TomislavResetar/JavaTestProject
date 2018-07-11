@@ -12,13 +12,26 @@ public class DrivingTest {
 		myCar.fuelEfficiency=6.5;
 		myCar.fuelLevel=10;
 		myCar.totalKilometers=56000;
+
+		/**
+		 * Report the initial state to the user
+		 */
+		System.out.println("Your car has started with "+myCar.totalKilometers+" km in total and the status of your tank is "+myCar.fuelLevel+" liters.");
+		
 		
 		/**
 		 * Start the driving simulation
 		 */
 		
+		myCar.drive(100);
 		myCar.addFuel(60.0);
 		myCar.drive(500);
+		
+		/**
+		 * Report the end state
+		 */
+		
+		System.out.println("Your car now has "+myCar.totalKilometers+" km in total and the status of your tank is "+myCar.fuelLevel+" liters.");
 		
 	}
 
@@ -30,6 +43,11 @@ class Car {
 	double tankCapacity; // l
 	double fuelLevel; // l
 	
+	Car() {
+		// Default values when a new car is constructed.
+		fuelEfficiency=5; totalKilometers=0; tankCapacity=50; fuelLevel=0;
+	}
+	
 	public void drive(double distance) {
 		double possibleDistance=fuelLevel/(fuelEfficiency/100);
 		
@@ -38,7 +56,7 @@ class Car {
 			double fuelSpent=distance*fuelEfficiency/100;
 			fuelLevel=fuelLevel-fuelSpent;
 			
-			System.out.println("Great, you have driven "+distance+" km and spent "+fuelSpent+" liters of fuel.");
+			System.out.println("You have driven "+distance+" km and spent "+fuelSpent+" liters of fuel.");
 		}
 		else {
 			System.out.println("You do not have enough fuel for your trip!");
