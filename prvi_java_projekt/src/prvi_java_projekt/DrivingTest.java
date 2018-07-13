@@ -4,14 +4,7 @@ public class DrivingTest {
 	
 	public static void main(String[] args) {
 		
-		Car myCar = new Car();
-		/**
-		 * Initialize the starting state of my car
-		 */
-		myCar.tankCapacity=55;
-		myCar.fuelEfficiency=6.5;
-		myCar.fuelLevel=10;
-		myCar.totalKilometers=56000;
+		Car myCar = new Car(5.5, 56000, 55, 20);
 		
 		/**
 		 * Start the driving simulation
@@ -30,6 +23,22 @@ class Car {
 	double tankCapacity; // l
 	double fuelLevel; // l
 	
+	Car(){
+		fuelEfficiency=5; totalKilometers=0; tankCapacity=50; fuelLevel=0;
+		System.out.println("New car is being created with DEFAULT values:\n"
+				+ "Fuel efficiency of "+fuelEfficiency+" L/100km, "+totalKilometers+" kilometers,"
+				+ " "+fuelLevel+" liters of fuel in the tank and a tank capacity "
+				+ "of "+tankCapacity+" liters.");
+	}
+	
+	Car(double feff,double totkm,double tankc,double fuellev){
+		fuelEfficiency=feff; totalKilometers=totkm; tankCapacity=tankc; fuelLevel=fuellev;
+		System.out.println("New car is being created with CUSTOM values:\n"
+				+ "Fuel efficiency of "+fuelEfficiency+" L/100km, "+totalKilometers+" kilometers,"
+				+ " "+fuelLevel+" liters of fuel in the tank and a tank capacity "
+				+ "of "+tankCapacity+" liters.");
+	}
+	
 	public void drive(double distance) {
 		double possibleDistance=fuelLevel/(fuelEfficiency/100);
 		
@@ -38,7 +47,7 @@ class Car {
 			double fuelSpent=distance*fuelEfficiency/100;
 			fuelLevel=fuelLevel-fuelSpent;
 			
-			System.out.println("Great, you have driven "+distance+" km and spent "+fuelSpent+" liters of fuel.");
+			System.out.println("You have driven "+distance+" km and spent "+fuelSpent+" liters of fuel.");
 		}
 		else {
 			System.out.println("You do not have enough fuel for your trip!");
